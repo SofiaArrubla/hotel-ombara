@@ -1,0 +1,485 @@
+.ombara-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  transition: background 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s;
+}
+.ombara-header.is-scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(14px);
+  padding: 0.9rem 3rem;
+  border-bottom: 1px solid var(--ombara-border);
+}
+.ombara-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.ombara-brand .font-serif-ombara {
+  font-size: 1.4rem;
+  letter-spacing: 0.5em;
+  color: var(--ombara-text);
+}
+.ombara-menu {
+  display: none;
+  list-style: none;
+  gap: 2.2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.ombara-menu a {
+  color: var(--ombara-text);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.3s, color 0.3s;
+}
+.ombara-menu a:hover { opacity: 1; color: var(--ombara-accent); }
+.ombara-register {
+  border: 1px solid var(--ombara-accent) !important;
+  padding: 0.65rem 1.6rem;
+  color: var(--ombara-accent) !important;
+  transition: background 0.3s, color 0.3s !important;
+}
+.ombara-register:hover {
+  background: var(--ombara-accent);
+  color: #0a0a0a !important;
+}
+.ombara-burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.ombara-burger span {
+  width: 26px; height: 1.5px; background: var(--ombara-text);
+}
+@media (min-width: 992px) {
+  .ombara-menu { display: flex; }
+  .ombara-burger { display: none; }
+}
+@media (max-width: 991px) {
+  .ombara-menu.is-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.97);
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  .ombara-header { padding: 1rem 1.5rem; }
+}
+
+.ombara-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ombara-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url("/assets/version-2/image(1).jpg") center/cover no-repeat;
+  transform: scale(1.05);
+}
+.ombara-hero-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.85) 100%);
+}
+.ombara-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 900px;
+}
+.ombara-hero-title {
+  font-size: clamp(3rem, 9vw, 7rem);
+  letter-spacing: 0.35em;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.ombara-hero-sub {
+  color: #d9d6cf;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+.ombara-hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.ombara-hero-badges span {
+  color: var(--ombara-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  position: relative;
+}
+.ombara-hero-badges span:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -1.3rem; top: 50%;
+  width: 4px; height: 4px;
+  background: var(--ombara-accent);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.ombara-hero-bottom {
+  position: absolute;
+  bottom: 2.5rem; left: 3rem; right: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1.2rem;
+}
+.ombara-hero-slide-title {
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.ombara-hero-nav {
+  display: flex;
+  gap: 2rem;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+}
+.ombara-hero-indicator { color: var(--ombara-accent); }
+
+.ombara-about-img-wrap {
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  margin-bottom: 1.5rem;
+}
+.ombara-about-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s ease;
+}
+.ombara-about-item:hover .ombara-about-img { transform: scale(1.06); }
+.ombara-about-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--ombara-text);
+}
+.ombara-about-text {
+  color: var(--ombara-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.ombara-usp-bg {
+  background: var(--ombara-bg-soft);
+  border-top: 1px solid var(--ombara-border);
+  border-bottom: 1px solid var(--ombara-border);
+}
+.ombara-usp-item { text-align: center; }
+.ombara-usp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; height: 60px;
+  border: 1px solid var(--ombara-border);
+  border-radius: 50%;
+  color: var(--ombara-accent);
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.ombara-usp-item:hover .ombara-usp-icon {
+  border-color: var(--ombara-accent);
+  transform: translateY(-4px);
+}
+.ombara-usp-text {
+  color: var(--ombara-text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.ombara-facilities {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 90vh;
+}
+@media (min-width: 992px) {
+  .ombara-facilities { grid-template-columns: 1fr 1fr; }
+}
+.ombara-facilities-img img {
+  width: 100%; height: 100%; object-fit: cover; min-height: 400px;
+}
+.ombara-facilities-content {
+  padding: 5rem 3rem;
+  background: var(--ombara-bg-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ombara-tabs-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--ombara-border);
+}
+.ombara-tabs-nav li {
+  padding: 0.8rem 0;
+  color: var(--ombara-text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.ombara-tabs-nav li.active {
+  color: var(--ombara-accent);
+  border-bottom-color: var(--ombara-accent);
+}
+.ombara-tab-pane h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.ombara-tab-pane p {
+  color: var(--ombara-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+.ombara-tab-pane img {
+  width: 100%; border-radius: 4px;
+}
+
+.ombara-gallery-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+}
+.ombara-gallery-track::-webkit-scrollbar { height: 4px; }
+.ombara-gallery-track::-webkit-scrollbar-thumb { background: var(--ombara-accent); }
+.ombara-gallery-card {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+}
+@media (min-width: 768px) {
+  .ombara-gallery-card { flex: 0 0 380px; }
+}
+.ombara-gallery-media {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+.ombara-gallery-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.9s;
+}
+.ombara-gallery-card:hover .ombara-gallery-media img { transform: scale(1.05); }
+.ombara-gallery-kicker {
+  color: var(--ombara-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.ombara-gallery-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.ombara-gallery-body p {
+  color: var(--ombara-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.ombara-register-section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 992px) {
+  .ombara-register-section { grid-template-columns: 1fr 1fr; }
+}
+.ombara-register-img img {
+  width: 100%; height: 100%; object-fit: cover; min-height: 500px;
+}
+.ombara-register-form-pane {
+  background: var(--ombara-bg-soft);
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.ombara-register-desc {
+  color: var(--ombara-text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+.ombara-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.ombara-register-form label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ombara-text-muted);
+  margin-bottom: 0.5rem;
+}
+.ombara-register-form input,
+.ombara-register-form select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--ombara-border);
+  padding: 0.8rem 0;
+  color: var(--ombara-text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: inherit;
+}
+.ombara-register-form input:focus,
+.ombara-register-form select:focus {
+  border-bottom-color: var(--ombara-accent);
+}
+.ombara-phone-wrap {
+  display: flex;
+  gap: 1rem;
+}
+.ombara-phone-wrap select { max-width: 90px; }
+.ombara-checkbox {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--ombara-text-muted) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.ombara-checkbox .accent { color: var(--ombara-accent); }
+.ombara-submit {
+  background: transparent;
+  border: 1px solid var(--ombara-accent);
+  color: var(--ombara-accent);
+  padding: 1rem 2rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+.ombara-submit:hover {
+  background: var(--ombara-accent);
+  color: #0a0a0a;
+}
+
+.ombara-footer {
+  background: #050505;
+  border-top: 1px solid var(--ombara-border);
+  padding: 5rem 1.5rem 2rem;
+  color: var(--ombara-text-muted);
+}
+.ombara-footer-shell {
+  display: grid;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--ombara-border);
+}
+@media (min-width: 768px) {
+  .ombara-footer-shell { grid-template-columns: 1.2fr 2fr; }
+}
+.ombara-footer-brand {
+  font-size: 1.3rem;
+  letter-spacing: 0.4em;
+  color: var(--ombara-text);
+  margin-bottom: 1rem;
+}
+.ombara-footer-text {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 380px;
+  font-weight: 300;
+}
+.ombara-footer-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.ombara-footer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.ombara-footer-group a,
+.ombara-footer-group span {
+  color: var(--ombara-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+.ombara-footer-group a:hover { color: var(--ombara-accent); }
+.ombara-footer-label {
+  color: var(--ombara-accent) !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.ombara-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.ombara-totop {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--ombara-accent);
+  color: #0a0a0a;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  z-index: 900;
+  transition: transform 0.3s;
+}
+.ombara-totop:hover { transform: translateY(-4px); }
+

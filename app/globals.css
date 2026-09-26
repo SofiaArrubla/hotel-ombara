@@ -1,26 +1,78 @@
-@import "tailwindcss";
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ombara-bg: #0a0a0a;
+  --ombara-bg-soft: #111111;
+  --ombara-surface: #161616;
+  --ombara-border: #262626;
+  --ombara-text: #e8e6e1;
+  --ombara-text-muted: #8a8a8a;
+  --ombara-accent: #c9a86a;
+  --ombara-accent-soft: #d9bd85;
+  --ombara-font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --ombara-font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  background-color: var(--ombara-bg);
+  color: var(--ombara-text);
+  font-family: var(--ombara-font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-serif-ombara {
+  font-family: var(--ombara-font-serif);
+  letter-spacing: 0.02em;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.accent-text {
+  display: inline-block;
+  color: var(--ombara-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
 }
+
+.section-title {
+  font-family: var(--ombara-font-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--ombara-text);
+}
+
+.section-subtitle {
+  color: var(--ombara-text-muted);
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  font-weight: 300;
+}
+
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding { padding: 8rem 3rem; }
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
